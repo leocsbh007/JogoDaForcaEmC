@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 char palavrasecreta[20];
 char chutes[26];
 int tentativas = 0;
@@ -17,6 +18,7 @@ void chuta() {
     scanf(" %c", &chute);
 
     chutes[tentativas] = chute;
+    tentativas++;
 }
 
 void forca(){
@@ -36,16 +38,16 @@ int jachutou(char letra){
         if (letra == chutes[j]){                    
             achou = 1;
             break;
-        }  
-    return achou;
+        }      
     }
+    return achou;
 }
 
 void desenhaforca() {
 
-    printf("Você já deu %d chutes\n", tentativas);
+    printf("Voce ja deu %d chutes\n", tentativas);
 
-    for(int i = 0; i < strlen(palavrasecreta); i++) {
+    for(unsigned int i = 0; i < strlen(palavrasecreta); i++) {
 
         if(jachutou(palavrasecreta[i])) {
             printf("%c ", palavrasecreta[i]);
@@ -74,8 +76,6 @@ int main() {
 
         desenhaforca();
         chuta();
-
-        tentativas++;
 
     } while (!acertou && !enforcou);
 
