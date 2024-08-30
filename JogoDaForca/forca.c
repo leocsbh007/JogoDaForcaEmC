@@ -23,6 +23,8 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
+#include <stdlib.h>
 #include "forca.h"
 
 
@@ -114,14 +116,44 @@ void desenhaforca() {
 
 /*********************************************************************************************************
 * Function Name  : escolhepalavra
-* Description    : Function to initialize can 0
+* Description    : Function has numbers, file words on the first line.
 * Input          : None
 * Output         : None
 * Return         : None
 * Attention		 : None
  *********************************************************************************************************/
 void escolhepalavra() {
-    sprintf(palavrasecreta, "MELANCIA");
+    //sprintf(palavrasecreta, "MELANCIA");
+    // Cria uma variavel do tipo aquivos, ela é um ponteiro
+    FILE* f;
+
+    // abre o arquivo somente para leitura (parametro "r" - read), e guarda a posição em f
+    f = fopen("palavras.txt", "r");
+    // Verifica de o valor não é valido, se não houve algum problema com a abertura/leitura do arquivo
+    if (f == 0){
+        printf("Banco de dados nao disponivel\n\n");
+        printf("O programa sera finalzado\n\n");
+        exit(1);
+    }
+
+    unsigned int qtdpalavras = 0;
+    // Acessa a primeira linha do arquivo referenciado pelo ponteiro f e joga o valor pra qtdpalavras
+    fscanf(f, "%d", &qtdpalavras);
+    //printf("%d", qtdpalavras);
+
+    //cria uma semente aleatoria
+    srand(time(0));
+    // cria um numero aleatorio onde o seu valor maximo será o tamanho da lista que esta contida na 
+    // primeira linha do arquivo
+    unsigned int numerorandomico = rand() % qtdpalavras;
+
+    //Varre o arquivo até o valir randomico para buscar a palavra que será usada no jogo
+    for (unsigned int i = 0; i < numerorandomico; i++)
+    {
+        fscanf(f, "%s", &palavrasecreta);
+    }
+
+    fclose(f);
 }
 
 /*********************************************************************************************************
