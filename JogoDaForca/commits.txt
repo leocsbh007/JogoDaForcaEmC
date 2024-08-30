@@ -20,3 +20,12 @@ This commit introduces a new file write function feature.
 - The `adicionapalavra` function can write words to a specified file and update the number of words within the file.
 
 This new feature will allow us to register new words to the file for use within the game.
+
+
+Commit 3
+feat(end-game): Implement new function win and lose the game and capitalize words
+
+This commit introduces a new functions with the end-game to win picture, lose picture and "forca picture"
+
+- A "maiuscula" function capital letters words to input archive.
+- Trhee pictures to win, lose and "forca"
