@@ -199,6 +199,53 @@ int acertou(){
 }
 
 /*********************************************************************************************************
+* Function Name  : adicionapalavra
+* Description    : Function has numbers, file words on the first line.
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention		 : None
+ *********************************************************************************************************/
+void adicionapalavra(){
+    
+    char quer;
+
+    printf("Voce quer adicionar mais uma palavra a bonco (S/N) ");
+    scanf(" %c", &quer);
+
+    if (quer == 'S'){
+                char novapalvra [20];
+        printf("Digite a nova palvra: ");
+        scanf("%s", &novapalvra);
+
+        FILE * f;
+        // abre o arquivo somente para leitura (parametro "r+" - read e write), e guarda a posição em f
+        f = fopen("palavras.txt", "r+");
+        // Verifica de o valor não é valido, se não houve algum problema com a abertura/leitura do arquivo
+        if (f == 0){
+            printf("Banco de dados nao disponivel\n\n");
+            printf("O programa sera finalzado\n\n");
+            exit(1);
+        }
+
+        unsigned int qtd = 0;
+        fscanf(f, "%d", &qtd);
+        qtd++;
+
+        fseek(f, 0, SEEK_SET);
+        fprintf(f, "%d", qtd);
+
+        fseek(f, 0, SEEK_END);
+        fprintf(f, "\n%s", novapalvra);
+
+        fclose(f);
+
+    }
+
+}
+
+
+/*********************************************************************************************************
 * Function Name  : main
 * Description    : Function to initialize can 0
 * Input          : None
@@ -220,5 +267,7 @@ int main() {
         chuta();
 
     } while (!acertou() && !enforcou());
+
+    adicionapalavra();
 
 }

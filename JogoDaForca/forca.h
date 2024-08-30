@@ -17,4 +17,5 @@ void desenhaforca();
 void escolhepalavra();
 int enforcou();
 int acertou();
+void adicionapalavra();
 

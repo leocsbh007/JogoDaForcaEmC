@@ -1,0 +1,22 @@
+
+date 30-08-2024
+Commit 1
+feat(utils): Create file reader utility
+
+This commit introduces a new utility function for reading files.
+
+- The function takes a file path as input.
+- It reads the file content and returns it as a string.
+- Error handling is implemented to gracefully handle file read errors.
+
+This utility function will be used throughout the project to simplify file reading operations.
+
+Commit 2
+feat(write): Implement file write function
+
+This commit introduces a new file write function feature.
+
+- A new `adicionapalavra` function has been created to handle file writing.
+- The `adicionapalavra` function can write words to a specified file and update the number of words within the file.
+
+This new feature will allow us to register new words to the file for use within the game.
