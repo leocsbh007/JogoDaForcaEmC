@@ -1,0 +1,13 @@
+first commit 12/09/2024
+
+git commit -m
+"feat: initial project setup
+
+This commit initializes the Pac-Man game project.
+
+- Created a main.c file for the game logic.
+- Included necessary header files (stdio.h, stdlib.h, etc.).
+- Defined basic game constants (mapa.txt, with character positions).
+- Implemented a simple game loop for testing.
+
+The game currently only displays a basic board with no functionality yet."
